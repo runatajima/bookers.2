@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookers</title>
+    <script src="https://kit.fontawesome.com/7c1133ce27.js" crossorigin="anonymous"></script>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body >
+   <nav >
+          <a class="navbar-brand p-3" href="/">Bookers</a>
+      </nav>
+    <header class=".navbar-dark bg-dark" >
+      <div class="container-fluid">
+       <div class="row">
+        <nav>
+          <ul class="nav navbar-nav text-righ", style="list-style: none;">
+
+<% if user_signed_in? %>
+
+              <li class="nav-item">
+                <%= link_to user_path(current_user)   do %>
+                <i class="fa-solid fa-house-chimney"></i>
+                <span class: 'nav-link text-dark'> Home</span>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to users_path  do %>
+                <i class="fa-solid fa-users"></i>
+                <span class: 'nav-link text-dark'> Users</span>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to books_path do %>
+                <i class="fa-solid fa-book-open"></i>
+                <span class: 'nav-link text-dark'> Books</span>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span class: 'nav-link text-dark'> Logout</span>
+                <% end %>
+              </li>
+
+    <% else %>
+      <li class="nav-item">
+                <%= link_to root_path do %>
+                <i class="fa-solid fa-house-chimney"></i>
+                <span class: 'nav-link text-dark'> Home</span>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to home_about_path do %>
+                <i class="fa-solid fa-link"></i>
+                <span class: 'nav-link text-dark'> About</span>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to new_user_registration_path do %>
+                <i class="fa-solid fa-user-plus"></i>
+                <span class: 'nav-link text-dark'> sign up</span>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to new_user_session_path do %>
+                <i class="fa-solid fa-right-to-bracket"></i>
+                <span class: 'nav-link text-dark'> login</span>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </nav>
+       </div>
+      </div>
+    </header>
+    <div class="body">
+      <p class="notice"><%= notice %></p>
+    <%= yield %>
+     <footer>
+          <p class="text-right"> CopyRight Infratop.inc</p>
+        </footer>
+      </div>
+  </body>
+</html>
