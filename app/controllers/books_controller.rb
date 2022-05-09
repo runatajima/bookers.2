@@ -50,12 +50,16 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     if @book.destroy
       flash[:notice]="Book was successfully destroyed."
-      redirect_to books_path
+      redirect_to "/books"
     end
   end
 
   private
     def book_params
       params.require(:book).permit(:title, :body)
+    end
+
+    def user_params
+        params.require(:user).permit(:name,:profile_image,:introduction)
     end
 end

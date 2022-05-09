@@ -1,6 +1,7 @@
 <table class="table table-user">
 
  <h1>User info</h1>
+ <div class="row">
   <thead>
     <tr>
       <%= image_tag user.get_profile_image(100,100) %>
@@ -17,15 +18,15 @@
       <th><%= user.introduction %></th>
     </tr>
     <tr>
-      <th>
-        <th colspan="2">
-          <button type="button" class="btn btn-light">
-            <%= link_to edit_user_path(current_user)  class="btn btn-default btn-block" do %>
-            <i class="fa-solid fa-user-gear"></i>
+     <div class="row">
+        <th>
+          <button type="button" class=" btn btn-outline-secondary btn-block col-md-12" >
+            <%= link_to edit_user_path(user)  do %>
+            <i class="fas fa-user-cog" style="color:gray;"></i>
             <% end %>
           </button>
-        
-      </th>
+        </th>
+      </div>
     </tr>
 
   </tbody>
